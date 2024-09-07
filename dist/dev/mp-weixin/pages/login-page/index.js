@@ -26,7 +26,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     }
     async function ApiLogin(avatarUrl, nickName, code) {
       try {
-        let obj = { appid: "wx3633f21a152d6617", secret: "ae096d1f7356b041bf549af7243a4319", avatarUrl, nickName, code };
+        let obj = { appid: "wxfb492ee9140f4b13", secret: "93d5b7341ac3f871c118fb3e6de34f0a", avatarUrl, nickName, code };
         let res = await public_request.RequestApi.WxLogin(obj);
         common_vendor.index.setStorageSync("wxuser", res.data.data);
         setTimeout(() => {
@@ -44,5 +44,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/LENOVO/Desktop/web\u524D\u7AEF/Vue\u9879\u76EE/\u667A\u6167\u533B\u7597-\u5728\u7EBF\u6302\u53F7/wechat-guahao/src/pages/login-page/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/JackieChan/Desktop/Jack003/onlineRegistration/src/pages/login-page/index.vue"]]);
 wx.createPage(MiniProgramPage);

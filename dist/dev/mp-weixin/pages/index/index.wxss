@@ -20,7 +20,7 @@
 .yuyue image.data-v-83a5a03c{
   width: 100%;
   display: block;
-  height: 550rpx;
+  height: 350rpx;
 }
 .gongge.data-v-83a5a03c{
   display: flex;

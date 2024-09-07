@@ -86,12 +86,12 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         f: common_vendor.t(common_vendor.unref(phy_detail)[0].price)
       } : {}, {
         g: common_vendor.o(memBar),
-        h: common_vendor.sr(compNone, "54e4f943-0", {
+        h: common_vendor.sr(compNone, "54b2fe08-0", {
           "k": "compNone"
         })
       });
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/LENOVO/Desktop/web\u524D\u7AEF/Vue\u9879\u76EE/\u667A\u6167\u533B\u7597-\u5728\u7EBF\u6302\u53F7/wechat-guahao/src/pages/phy-exam/Details.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/JackieChan/Desktop/Jack003/onlineRegistration/src/pages/phy-exam/Details.vue"]]);
 wx.createPage(MiniProgramPage);

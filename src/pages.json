@@ -2,7 +2,7 @@
     "pages": [{
         "path": "pages/index/index",
         "style": {
-            "navigationBarTitleText": "河南省第一人民医院",
+            "navigationBarTitleText": "在线问诊",
             "navigationStyle": "custom"
         }
     }, {

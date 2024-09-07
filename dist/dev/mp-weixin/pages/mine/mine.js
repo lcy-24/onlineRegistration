@@ -20,9 +20,25 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         url: "/pages/login-page/index"
       });
     }
+    function signOut() {
+      common_vendor.index.showModal({
+        title: "\u63D0\u793A",
+        content: "\u60A8\u786E\u5B9A\u8981\u9000\u51FA\u767B\u5F55\u5417\uFF1F",
+        success(res) {
+          if (res.confirm) {
+            console.log("\u7528\u6237\u70B9\u51FB\u786E\u5B9A");
+            common_vendor.index.removeStorageSync("wxuser");
+            user_data.value.avatarUrl = "";
+            user_data.value.nickName = "";
+          } else if (res.cancel) {
+            console.log("\u7528\u6237\u70B9\u51FB\u53D6\u6D88");
+          }
+        }
+      });
+    }
     let information = common_vendor.reactive([
       {
-        number: 5,
+        number: 100,
         title: "\u5065\u5EB7\u5206"
       },
       {
@@ -91,10 +107,11 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
             c: index,
             d: common_vendor.o(($event) => orderRoute(item.path), index)
           };
-        })
+        }),
+        g: common_vendor.o(signOut)
       };
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/LENOVO/Desktop/web\u524D\u7AEF/Vue\u9879\u76EE/\u667A\u6167\u533B\u7597-\u5728\u7EBF\u6302\u53F7/wechat-guahao/src/pages/mine/mine.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/JackieChan/Desktop/Jack003/onlineRegistration/src/pages/mine/mine.vue"]]);
 wx.createPage(MiniProgramPage);

@@ -34,7 +34,7 @@
   // 调用api接口登陆
   async function ApiLogin(avatarUrl:string,nickName:string,code:string){
     try {
-      let obj = {appid:'wx3633f21a152d6617',secret:'ae096d1f7356b041bf549af7243a4319',avatarUrl,nickName,code}
+      let obj = { appid: 'wxfb492ee9140f4b13', secret: '93d5b7341ac3f871c118fb3e6de34f0a', avatarUrl, nickName, code }
       let res:any = await RequestApi.WxLogin(obj)
       
       // 存储用户信息到本地缓存，然后返回上一页

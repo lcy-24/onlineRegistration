@@ -1,21 +1,34 @@
 <template>
-    <view class="user-name">
-      <image :src="user_data.avatarUrl == '' ? '/static/other/touxiang.svg' : user_data.avatarUrl" mode="aspectFill"></image>
-      <text @click="loGin" :class="user_data.nickName == '' ? 'split-new' : 'disabled'">{{user_data.nickName == '' ? '登陆' : user_data.nickName}}</text>
+  <view class="user-name">
+    <image :src="user_data.avatarUrl == '' ? '/static/other/touxiang.svg' : user_data.avatarUrl" mode="aspectFill">
+    </image>
+    <text @click="loGin" :class="user_data.nickName == '' ? 'split-new' : 'disabled'">{{user_data.nickName == '' ? '登陆'
+      : user_data.nickName}}</text>
+  </view>
+  <view class="infor_mation">
+    <view v-for="(item,index) in information" :key="index">
+      <text>{{item.number}}</text>
+      <text>{{item.title}}</text>
     </view>
-    <view class="infor_mation">
-      <view v-for="(item,index) in information" :key="index">
-        <text>{{item.number}}</text>
-        <text>{{item.title}}</text>
-      </view>
+  </view>
+  <view class="my-order">
+    <view v-for="(item,index) in orderData" :key="index" @click="orderRoute(item.path)">
+      <image :src="item.icon"></image>
+      <text>{{item.title}}</text>
     </view>
-    <view class="my-order">
-      <view v-for="(item,index) in orderData" :key="index" @click="orderRoute(item.path)">
-        <image :src="item.icon"></image>
-        <text>{{item.title}}</text>
-      </view>
+  </view>
+  <view class="my-order1">
+    <view style="display: flex; justify-content: space-between; width: 100%; height: 15px; padding: 15px;">
+      <text class="text1">软件版本</text>
+      <text class="text2">V1.0.0</text>
     </view>
-  </template>
+  </view>
+  <view class="my-order1" @click="signOut">
+    <view style="display: flex; justify-content: space-between; width: 100%; height: 15px; padding: 15px;">
+      <text class="text1">退出登录</text>
+    </view>
+  </view>
+</template>
   
   <script setup lang="ts">
   import {reactive, ref} from 'vue'
@@ -40,10 +53,33 @@
       url:"/pages/login-page/index"
     })
   }
+  // 退出登录
+  function signOut() {
+    uni.showModal({
+      title: '提示',
+      content: '您确定要退出登录吗？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+          // 清除缓存中的用户信息
+          uni.removeStorageSync('wxuser');
+          // 手动更新 user_data 的值
+          user_data.value.avatarUrl = '';
+          user_data.value.nickName = '';
+          // 可选：导航到登录页面
+          // uni.reLaunch({
+          //   url: '/pages/login-page/index'
+          // });
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+        }
+      }
+    });
+  }
 
   let information = reactive([
     {
-      number:5,
+      number:100,
       title:'健康分'
     },
     {
@@ -99,18 +135,20 @@ function orderRoute(path:string){
   </script>
   
   <style>
-  page{
-      background: linear-gradient(to bottom,#e3efff 30%, #f6f6f6 40%);
+  page {
+    background: linear-gradient(to bottom, #e3efff 30%, #f6f6f6 40%);
   }
+
   /* 昵称 */
-  .user-name{
+  .user-name {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-weight: bold;
     font-size: 35rpx;
   }
-  .user-name image{
+
+  .user-name image {
     width: 80rpx;
     height: 80rpx;
     display: block;
@@ -118,23 +156,27 @@ function orderRoute(path:string){
     border: 5rpx solid #ffffff;
     margin-bottom: 10rpx;
   }
+
   /* 三个排列 */
-  .infor_mation view{
+  .infor_mation view {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .infor_mation{
+
+  .infor_mation {
     display: flex;
     justify-content: space-around;
     font-weight: bold;
     margin: 50rpx 0;
   }
-  .infor_mation text{
+
+  .infor_mation text {
     padding-bottom: 15rpx;
   }
+
   /* 我的订单 */
-  .my-order{
+  .my-order {
     background-color: #ffffff;
     border-radius: 20rpx;
     margin: 0 20rpx 20rpx 20rpx;
@@ -142,27 +184,40 @@ function orderRoute(path:string){
     flex-wrap: wrap;
     font-size: 28rpx;
   }
-  .my-order image{
+
+  .my-order image {
     width: 60rpx;
     height: 60rpx;
     margin-bottom: 25rpx;
   }
-  .my-order view{
+
+  .my-order view {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: calc(25% - 20rpx*2);
     margin: 20rpx;
   }
+
   /* 未登陆的背景 */
-  .split-new{
+  .split-new {
     background: #0176ff;
     color: #ffffff;
     border-radius: 10rpx;
     padding: 10rpx 50rpx;
   }
+
   /* 禁用点击 */
-  .disabled{
+  .disabled {
     pointer-events: none;
   }
-  </style>
+
+  .my-order1 {
+    background-color: #ffffff;
+    border-radius: 20rpx;
+    margin: 0 20rpx 20rpx 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 28rpx;
+  }
+</style>

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "河南省第一人民医院",
+  "navigationBarTitleText": "在线问诊",
   "navigationStyle": "custom",
   "usingComponents": {
     "sk-index": "../../Skeleton/SK-index"

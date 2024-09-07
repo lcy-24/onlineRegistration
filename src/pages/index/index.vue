@@ -2,7 +2,7 @@
   <!-- 自定义的导航 -->
   <view class="nav-gation">
     <view class="nav-top"></view>
-    <view class="nav-height">河南省第一人民医院</view>
+    <view class="nav-height">在线问诊</view>
   </view>
   <view class="yuyue">
     <image mode="aspectFill" src="../../static/doctor.png"></image>
@@ -110,7 +110,7 @@ let selftest = ref<Selftest[]>([])
 let skeLeton = ref(true) //骨架屏
 async function pageData(){
   const res:any = await RequestApi.FrontPage()
-  console.log(res);
+  console.log(res, 'resres');
   vaccine.value = res.data.data[0].vaccine
   phydata.value = res.data.data[1].reserve
   registered.value = res.data.data[2].popular
@@ -193,7 +193,7 @@ function jumpAssess(name:string,index:number,type:string){
 .yuyue image{
   width: 100%;
   display: block;
-  height: 550rpx;
+  height: 350rpx;
 }
 .gongge{
   display: flex;

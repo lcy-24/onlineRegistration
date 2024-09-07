@@ -27,7 +27,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     let skeLeton = common_vendor.ref(true);
     async function pageData() {
       const res = await public_request.RequestApi.FrontPage();
-      console.log(res);
+      console.log(res, "resres");
       vaccine.value = res.data.data[0].vaccine;
       phydata.value = res.data.data[1].reserve;
       registered.value = res.data.data[2].popular;
@@ -150,5 +150,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-83a5a03c"], ["__file", "C:/Users/LENOVO/Desktop/web\u524D\u7AEF/Vue\u9879\u76EE/\u667A\u6167\u533B\u7597-\u5728\u7EBF\u6302\u53F7/wechat-guahao/src/pages/index/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-83a5a03c"], ["__file", "C:/Users/JackieChan/Desktop/Jack003/onlineRegistration/src/pages/index/index.vue"]]);
 wx.createPage(MiniProgramPage);
